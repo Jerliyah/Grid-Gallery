@@ -40,6 +40,7 @@ body * {
     color: #ff6666;
 }
 
+/* TODO: Animation for background color on hover */
 #page-overlay a:hover {
     background: #ffcccc;
     font-weight: bold;
@@ -78,11 +79,17 @@ img {
 }
 
 .overlay button {
-    border: 2px solid white;
+    border: 3px solid white;
     color: white;
     padding: 0.5em 1em;
     background: transparent;
-    border-radius: 5px;
+    border-radius: 5px;    
+}
+
+.overlay button:hover {
+    border-width: 1px; 
+    font-size: 1.3em;
+    padding: 5px 10px;
 }
 
 
