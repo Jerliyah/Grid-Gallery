@@ -3,6 +3,7 @@ body = document.querySelector('body')
 
 
 /* ====== Variables ====== */
+var counter = 0
 
 
 
@@ -18,18 +19,45 @@ fetch(request)
 .then( response => { return response.json() })
 .then( json_stuff => { send_to_doc(json_stuff) })
 
+
+
 /* ====== Functions ====== */
 
 function send_to_doc(arr) {
     arr.forEach( (obj) => {
-        url_to_img(obj.urls.small)
+        let url = obj.urls.small
+        let img = convert_to_img(url)
+        let set = package(img)
+
+        body.insertAdjacentElement('beforeend', set)
     })
 }
 
-function url_to_img(url) {
+function convert_to_img(url) {
     let img = document.createElement('img')
     img.setAttribute('src', url)
-    body.insertAdjacentElement('beforeend', img)
+    return img
+}
+
+function package(img) {
+    counter++
+
+    let container = document.createElement('div')
+    container.setAttribute('class', 'container')
+    container.setAttribute('id', `ctn${counter}`)
+
+    let overlay = document.createElement('div')
+    overlay.setAttribute('class', 'overlay')
+    overlay.setAttribute('id', `o${counter}`)
+
+    let button = document.createElement('button')
+    button.innerText = 'View'
+    overlay.insertAdjacentElement('beforeend', button)
+
+    container.insertAdjacentElement('beforeend', img)
+    container.insertAdjacentElement('beforeend', overlay)
+
+    return container
 }
 
 

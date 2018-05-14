@@ -2,4 +2,42 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
+
+    display: grid;
 }
+
+.container {
+    position: relative;
+    overflow: scroll;
+}
+
+img {
+    width: 100%;
+}
+
+.overlay {
+    background: rgba(153, 204, 255, 0.5);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay button {
+    border: 2px solid white;
+    color: white;
+    padding: 0.5em 1em;
+    background: transparent;
+    border-radius: 5px;
+}
+
+
+
+
+
+
