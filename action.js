@@ -1,10 +1,16 @@
 /* ====== DOM Grab ====== */
 body = document.querySelector('body')
-
+page_overlay = body.querySelector('#page-overlay')
+page_overlay_btn = body.querySelector('#page-overlay a')
 
 /* ====== Variables ====== */
 var counter = 0
 
+
+/* ====== Events ====== */
+page_overlay_btn.addEventListener('click', () => {
+    page_overlay.classList.add('closed')
+})
 
 
 /* ====== API Call ====== */
@@ -17,7 +23,10 @@ var request = new Request('https://api.unsplash.com/photos/random?count=5', {
 
 fetch(request)
 .then( response => { return response.json() })
-.then( json_stuff => { send_to_doc(json_stuff) })
+.then( json_stuff => { 
+    console.log(json_stuff)
+    send_to_doc(json_stuff) 
+})
 
 
 
@@ -25,17 +34,18 @@ fetch(request)
 
 function send_to_doc(arr) {
     arr.forEach( (obj) => {
-        let url = obj.urls.small
-        let img = convert_to_img(url)
+        let urls = [obj.urls.small, obj.urls.regular]
+        let img = convert_to_img(urls)
         let set = package(img)
 
         body.insertAdjacentElement('beforeend', set)
     })
 }
 
-function convert_to_img(url) {
+function convert_to_img(arr) {
     let img = document.createElement('img')
-    img.setAttribute('src', url)
+    img.setAttribute('src', arr[0])
+    img.setAttribute('data-bigger_size', arr[1])
     return img
 }
 
@@ -57,8 +67,19 @@ function package(img) {
     container.insertAdjacentElement('beforeend', img)
     container.insertAdjacentElement('beforeend', overlay)
 
+    button.addEventListener('click', () => { bigger_display(img) })
+
     return container
 }
 
+function bigger_display(img) {
+    let bigger_img = document.createElement('img');
+    bigger_img.setAttribute('src', img.getAttribute('data-bigger_size'))
 
-/* ====== Events ====== */
+    page_overlay.insertAdjacentElement('afterbegin', bigger_img)
+    page_overlay.classList.remove('closed')
+}
+
+
+
+

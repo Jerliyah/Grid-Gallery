@@ -7,15 +7,28 @@ body {
     display: grid;
 }
 
+body * {
+    box-sizing: border-box;
+}
+
 #page-overlay {
     position: fixed;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.9);
     height: 100vh;
     width: 100vw;
+    padding: 10vh 10vw;
     z-index: 50;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#page-overlay img {
+    height: auto;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 #page-overlay a {
@@ -33,6 +46,10 @@ body {
     width: 100%;
     text-align: center;
     color: white;
+}
+
+#page-overlay.closed {
+    display: none;
 }
 
 
