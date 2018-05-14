@@ -5,6 +5,8 @@ body {
     font-family: sans-serif;
 
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
 body * {
@@ -22,6 +24,8 @@ body * {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    overflow-y: scroll;
 }
 
 #page-overlay img {
@@ -58,7 +62,7 @@ body * {
 
 .container {
     position: relative;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 img {
@@ -71,11 +75,15 @@ img {
     height: 100%;
     width: 100%;
     z-index: 10;
-    top: 0;
+    top: 100%;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.overlay.cover {
+    top: 0;
 }
 
 .overlay button {

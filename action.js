@@ -67,6 +67,12 @@ function package(img) {
     container.insertAdjacentElement('beforeend', img)
     container.insertAdjacentElement('beforeend', overlay)
 
+    container.addEventListener('mouseenter', () => {
+        overlay.classList.add('cover')
+    })
+    container.addEventListener('mouseleave', () => {
+        overlay.classList.remove('cover')
+    })
     button.addEventListener('click', () => { bigger_display(img) })
 
     return container
