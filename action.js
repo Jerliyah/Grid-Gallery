@@ -9,6 +9,7 @@ var counter = 0
 
 /* ====== Initial Events ====== */
 page_overlay_btn.addEventListener('click', () => {
+    page_overlay.removeChild( (page_overlay.querySelector('img')) )
     page_overlay.classList.add('closed')
 })
 
@@ -88,6 +89,7 @@ function bigger_display(url) {
     bigger_img.onload = ()=>{
         page_overlay_btn.style.width = `${bigger_img.width}px`
     }
+
 }
 
 function random(max) {

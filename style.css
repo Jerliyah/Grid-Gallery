@@ -48,7 +48,8 @@ body * {
 
 /* TODO: Animation for background color on hover */
 #page-overlay a:hover {
-    background: rgb(255,204,204);
+    /* background: rgb(255,204,204); */
+    background: blueviolet;
     font-weight: bold;
     color: white;
 }
