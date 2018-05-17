@@ -9,7 +9,7 @@ var counter = 0
 
 /* ====== Initial Events ====== */
 var loading_gif = document.createElement('img')
-loading_gif.setAttribute('src', 'gifs/loading1.gif')
+loading_gif.setAttribute('src', 'gifs/loading.gif')
 
 page_overlay.insertAdjacentElement('afterbegin', loading_gif )
 
