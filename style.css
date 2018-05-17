@@ -7,7 +7,9 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, 10vw);
     grid-template-rows: 10vh;
-    grid-auto-flow: dense;
+    /* NOTE: With the interesting background of the body, I don't really need dense */
+    /* grid-auto-flow: dense; */
+    background-image: url('scales.gif');
 }
 
 body * {

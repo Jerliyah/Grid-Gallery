@@ -35,9 +35,7 @@ fetch(request)
 function send_to_doc(arr) {
     arr.forEach( (obj) => {
         let urls = [obj.urls.small, obj.urls.regular]
-        // let img = convert_to_img(urls)
-        // let set = package(img)
-        let set = package(urls[0])
+        let set = package(urls)
 
         body.insertAdjacentElement('beforeend', set)
     })
@@ -50,26 +48,23 @@ function convert_to_img(arr) {
     return img
 }
 
-function package(img) {
+function package(urls) {
     counter++
 
     let container = document.createElement('div')
     container.setAttribute('class', 'container')
     container.classList.add(`v-span${random(3)}`)
     container.classList.add(`h-span${random(3)}`)
-    container.setAttribute('id', `ctn${counter}`)
 
-    container.style.backgroundImage = `url(${img})`
+    container.style.backgroundImage = `url(${urls[0]})`
 
     let overlay = document.createElement('div')
     overlay.setAttribute('class', 'overlay')
-    overlay.setAttribute('id', `o${counter}`)
 
     let button = document.createElement('button')
     button.innerText = 'View'
     overlay.insertAdjacentElement('beforeend', button)
 
-    // container.insertAdjacentElement('beforeend', img)
     container.insertAdjacentElement('beforeend', overlay)
 
     container.addEventListener('mouseenter', () => {
@@ -78,14 +73,14 @@ function package(img) {
     container.addEventListener('mouseleave', () => {
         overlay.classList.remove('cover')
     })
-    button.addEventListener('click', () => { bigger_display(img) })
+    button.addEventListener('click', () => { bigger_display(urls[1]) })
 
     return container
 }
 
-function bigger_display(img) {
+function bigger_display(url) {
     let bigger_img = document.createElement('img');
-    bigger_img.setAttribute('src', img.getAttribute('data-bigger_size'))
+    bigger_img.setAttribute('src', url)
 
     page_overlay.insertAdjacentElement('afterbegin', bigger_img)
     page_overlay.classList.remove('closed')
@@ -93,7 +88,6 @@ function bigger_display(img) {
     bigger_img.onload = ()=>{
         page_overlay_btn.style.width = `${bigger_img.width}px`
     }
-    
 }
 
 function random(max) {
