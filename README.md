@@ -10,3 +10,9 @@ You can simply gaze at the collage, or click on individual images to see them at
 * Hover effects (color overlay and button transform)
 * Full image modal
 * Custom made loading gif (used Gimp)
+
+
+## Screenshots
+![screenshot1](screenshots/ss1.png)
+
+<!-- TODO: Add more screenshots -->

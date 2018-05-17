@@ -22,8 +22,10 @@ page_overlay_btn.addEventListener('click', () => {
 /* ====== API Call ====== */
 var request = new Request('https://api.unsplash.com/photos/random?count=30', {
     method: 'GET',
+    mode: 'cors',
     headers: new Headers({
-        'Authorization': 'Client-ID 6236edfcbba90a34eb926b8f757f00b77f8c1b7bb90a8de748e7314e73b520ad'
+        'Authorization': 'Client-ID 6236edfcbba90a34eb926b8f757f00b77f8c1b7bb90a8de748e7314e73b520ad',
+        'Access-Control-Allow-Origin': '*'
     })
 });
 
