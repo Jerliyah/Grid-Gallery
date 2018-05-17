@@ -14,7 +14,7 @@ page_overlay_btn.addEventListener('click', () => {
 
 
 /* ====== API Call ====== */
-var request = new Request('https://api.unsplash.com/photos/random?count=5', {
+var request = new Request('https://api.unsplash.com/photos/random?count=30', {
     method: 'GET',
     headers: new Headers({
         'Authorization': 'Client-ID 6236edfcbba90a34eb926b8f757f00b77f8c1b7bb90a8de748e7314e73b520ad'
@@ -35,8 +35,9 @@ fetch(request)
 function send_to_doc(arr) {
     arr.forEach( (obj) => {
         let urls = [obj.urls.small, obj.urls.regular]
-        let img = convert_to_img(urls)
-        let set = package(img)
+        // let img = convert_to_img(urls)
+        // let set = package(img)
+        let set = package(urls[0])
 
         body.insertAdjacentElement('beforeend', set)
     })
@@ -54,7 +55,11 @@ function package(img) {
 
     let container = document.createElement('div')
     container.setAttribute('class', 'container')
+    container.classList.add(`v-span${random(3)}`)
+    container.classList.add(`h-span${random(3)}`)
     container.setAttribute('id', `ctn${counter}`)
+
+    container.style.backgroundImage = `url(${img})`
 
     let overlay = document.createElement('div')
     overlay.setAttribute('class', 'overlay')
@@ -64,7 +69,7 @@ function package(img) {
     button.innerText = 'View'
     overlay.insertAdjacentElement('beforeend', button)
 
-    container.insertAdjacentElement('beforeend', img)
+    // container.insertAdjacentElement('beforeend', img)
     container.insertAdjacentElement('beforeend', overlay)
 
     container.addEventListener('mouseenter', () => {
@@ -91,6 +96,9 @@ function bigger_display(img) {
     
 }
 
+function random(max) {
+    return Math.floor(Math.random() * (max - 1 )) + 1;
+}
 
 
 

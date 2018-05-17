@@ -5,8 +5,9 @@ body {
     font-family: sans-serif;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, 10vw);
+    grid-template-rows: 10vh;
+    grid-auto-flow: dense;
 }
 
 body * {
@@ -24,8 +25,6 @@ body * {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    overflow-y: scroll;
 }
 
 #page-overlay img {
@@ -62,6 +61,33 @@ body * {
 .container {
     position: relative;
     overflow: hidden;
+    background-size: cover;
+}
+
+.v-span1 {
+    grid-column: span 1;
+}
+.v-span2 {
+    grid-column: span 2;
+}
+.v-span3 {
+    grid-column: span 3;
+}
+.v-span4 {
+    grid-column: span 4;
+}
+
+.h-span1 {
+    grid-row: span 1;
+}
+.h-span2 {
+    grid-row: span 2;
+}
+.h-span3 {
+    grid-row: span 3;
+}
+.h-span4 {
+    grid-row: span 4;
 }
 
 img {
