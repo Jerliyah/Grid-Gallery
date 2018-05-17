@@ -7,7 +7,7 @@ page_overlay_btn = body.querySelector('#page-overlay a')
 var counter = 0
 
 
-/* ====== Events ====== */
+/* ====== Initial Events ====== */
 page_overlay_btn.addEventListener('click', () => {
     page_overlay.classList.add('closed')
 })
@@ -84,6 +84,11 @@ function bigger_display(img) {
 
     page_overlay.insertAdjacentElement('afterbegin', bigger_img)
     page_overlay.classList.remove('closed')
+
+    bigger_img.onload = ()=>{
+        page_overlay_btn.style.width = `${bigger_img.width}px`
+    }
+    
 }
 
 

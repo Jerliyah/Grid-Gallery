@@ -38,6 +38,7 @@ body * {
 #page-overlay a {
     color: white;
     padding: 0.5em 1em;
+    text-align: center;
 }
 #page-overlay a>span {
     font-weight: bold;
@@ -46,10 +47,8 @@ body * {
 
 /* TODO: Animation for background color on hover */
 #page-overlay a:hover {
-    background: #ffcccc;
+    background: rgb(255,204,204);
     font-weight: bold;
-    width: 100%;
-    text-align: center;
     color: white;
 }
 
