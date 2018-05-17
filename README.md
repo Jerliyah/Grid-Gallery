@@ -14,5 +14,7 @@ You can simply gaze at the collage, or click on individual images to see them at
 
 ## Screenshots
 ![screenshot1](screenshots/ss1.png)
-
-<!-- TODO: Add more screenshots -->
+![screenshot2](screenshots/ss2.png)
+![screenshot3](screenshots/ss3.png)
+![screenshot4](screenshots/ss4.png)
+![screenshot5](screenshots/ss5.png)
