@@ -1,15 +1,20 @@
 /* ====== DOM Grab ====== */
-body = document.querySelector('body')
-page_overlay = body.querySelector('#page-overlay')
-page_overlay_btn = body.querySelector('#page-overlay a')
+var body = document.querySelector('body')
+var page_overlay = body.querySelector('#page-overlay')
+var page_overlay_btn = body.querySelector('#page-overlay a')
 
 /* ====== Variables ====== */
 var counter = 0
 
 
 /* ====== Initial Events ====== */
+var loading_gif = document.createElement('img')
+loading_gif.setAttribute('src', 'gifs/loading1.gif')
+
+page_overlay.insertAdjacentElement('afterbegin', loading_gif )
+
 page_overlay_btn.addEventListener('click', () => {
-    page_overlay.removeChild( (page_overlay.querySelector('img')) )
+    page_overlay.replaceChild( loading_gif, page_overlay.querySelector('img') )
     page_overlay.classList.add('closed')
 })
 
@@ -83,10 +88,10 @@ function bigger_display(url) {
     let bigger_img = document.createElement('img');
     bigger_img.setAttribute('src', url)
 
-    page_overlay.insertAdjacentElement('afterbegin', bigger_img)
     page_overlay.classList.remove('closed')
 
     bigger_img.onload = ()=>{
+        page_overlay.replaceChild(bigger_img, loading_gif)
         page_overlay_btn.style.width = `${bigger_img.width}px`
     }
 

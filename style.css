@@ -9,7 +9,7 @@ body {
     grid-template-rows: 10vh;
     /* NOTE: With the interesting background of the body, I don't really need dense */
     /* grid-auto-flow: dense; */
-    background-image: url('scales.gif');
+    background-image: url('gifs/scales.gif');
 }
 
 body * {
