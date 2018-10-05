@@ -18,3 +18,14 @@ You can simply gaze at the collage, or click on individual images to see them at
 ![screenshot3](screenshots/ss3.png)
 ![screenshot4](screenshots/ss4.png)
 ![screenshot5](screenshots/ss5.png)
+
+
+## Getting Started
+1. Clone or download this project
+2. Open your local version of the project
+3. Run index.html in your browser (double-click)
+4. Enjoy!
+
+
+## Issue Notes
+* The API call may fail in Chrome (working on it) - try a different browser such as Firefox
